@@ -59,7 +59,7 @@
 const props = defineProps({
   weather: {
     type: Object,
-    default: null,
+    default: () => null,
   },
   loading: {
     type: Boolean,
@@ -70,7 +70,7 @@ const props = defineProps({
     default: "",
   },
 });
-
+console.log("card", props.weather);
 const formatDate = (timestamp) => {
   return new Date(timestamp * 1000).toLocaleDateString("en-US", {
     weekday: "long",

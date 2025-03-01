@@ -1,71 +1,32 @@
+To run the application locally, follow these steps:
 
-## Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/camilaGidoni/weather-app
+   ```
 
-Make sure to install dependencies:
+2. **Install dependencies:**
+   In the project folder, run:
+   ```bash
+   npm install
+   ```
 
-```bash
-# npm
-npm install
+3. **Set up your API Key:**
+   - Create a `.env` file in the root of the project and add your OpenWeather API key:
+     ```
+     OPENWEATHER_API_KEY=your-api-key-here
+     ```
 
-# pnpm
-pnpm install
+4. **Run the app locally:**
+   ```bash
+   npm run dev
+   ```
+   The app will be available at `http://localhost:3000` by default.
 
-# yarn
-yarn install
+## Technologies Used
+- Nuxt 3
+- Vue 3
+- OpenWeather API
+- SCSS (or CSS)
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
 

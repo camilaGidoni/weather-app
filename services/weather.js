@@ -1,7 +1,6 @@
 export const fetchWeatherByCity = async (city, apiKey) => {
     try {
         const response = await fetch(
-            //`https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=4&appid=${apiKey}&units=metric`
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
         );
         if (!response.ok) throw new Error("Failed to fetch weather data");

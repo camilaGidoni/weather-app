@@ -31,19 +31,7 @@ const savedCities = computed(() => {
   return store.getSavedCities;
 });
 
-/*let debounceTimeout;
-watch(searchQuery, (newQuery) => {
-  // Clear any existing debounce timeouts
-  clearTimeout(debounceTimeout);
-
-  // Set a new timeout to trigger the search after 500ms of inactivity
-  debounceTimeout = setTimeout(async () => {
-    if (newQuery.trim()) {
-      await searchByCity(newQuery);
-    }
-  }, 500); // Delay of 500ms
-});
-
+/*
 let debounceTimeout;
 const debouncedSearch = (city) => {
   clearTimeout(debounceTimeout);
@@ -58,7 +46,6 @@ const searchByCity = async (city) => {
     loading.value = true;
     error.value = "";
     weather.value = await fetchWeatherByCity(city, config.public.weatherApiKey);
-    console.log("weather.value", weather.value);
   } catch (err) {
     error.value = err.message;
     weather.value = null;
@@ -90,6 +77,7 @@ onMounted(async () => {
   }
 });
 </script>
+
   
   <style scoped>
 .page-title {

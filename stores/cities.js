@@ -10,7 +10,7 @@ export const useCitiesStore = defineStore('cities', {
     getters: {
         getSavedCities: (state) => state.cities,
         isCitySaved: (state) => (cityId) => {
-            return state.cities.some(city => city.id === cityId);
+            return state.cities.some(city => city.id === cityId); //boolean
         }
     },
 

@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "jest"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.10.1",
@@ -16,5 +17,8 @@
     "pinia": "^3.0.1",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@vue/vue3-jest": "^29.2.6"
   }
 }
