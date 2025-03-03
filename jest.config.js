@@ -1,9 +1,10 @@
-module.exports = {
-    preset: '@vue/cli-plugin-unit-jest/presets/no-babel',
+
+export default {
+    testEnvironment: 'jest-environment-jsdom',
     transform: {
-        '^.+\\.vue$': 'vue-jest',
-        '^.+\\.js$': 'babel-jest',
+        '^.+\\.vue$': '@vue/vue3-jest',
+        '^.+\\.[t|j]sx?$': 'babel-jest',
     },
-    moduleFileExtensions: ['js', 'vue'],
-    testEnvironment: 'jsdom',
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'vue'],
+    transformIgnorePatterns: ['/node_modules/(?!(@vue|vue-router)/)'],
 };

@@ -23,6 +23,9 @@ To run the application locally, follow these steps:
    ```
    The app will be available at `http://localhost:3000` by default.
 
+ 5. **depolyment app:**
+   at `https://marvelous-cassata-4fbc3b.netlify.app/ `
+
 ## Technologies Used
 - Nuxt 3
 - Vue 3
