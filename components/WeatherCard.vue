@@ -1,7 +1,7 @@
 <template>
   <div class="weather-viewer card" v-if="weather">
     <div class="weather-header">
-      <h2>{{ weather.name }}, {{ weather.sys.country }}</h2>
+      <h2>{{ city.name }}, {{ city.country }}</h2>
       <p class="weather-date">{{ formatDate(weather.dt) }}</p>
     </div>
 
@@ -61,6 +61,10 @@ const props = defineProps({
     type: Object,
     default: () => null,
   },
+  city: {
+    type: Object,
+    default: () => null,
+  },
   loading: {
     type: Boolean,
     default: false,
@@ -70,7 +74,6 @@ const props = defineProps({
     default: "",
   },
 });
-console.log("card", props.weather);
 const formatDate = (timestamp) => {
   return new Date(timestamp * 1000).toLocaleDateString("en-US", {
     weekday: "long",

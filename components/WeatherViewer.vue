@@ -1,7 +1,16 @@
 <template>
   <div>
-    <WeatherCard :weather="weather" :loading="loading" :error="error" />
-    <div class="city-actions" v-if="weather !== null">
+    <div v-if="weather && weather.list" class="weather-list">
+      <WeatherCard
+        v-for="(forecast, index) in weather.list"
+        :key="index"
+        :weather="forecast"
+        :loading="loading"
+        :error="error"
+        :city="weather.city"
+      />
+    </div>
+    <div class="city-actions" v-if="hasWeatherData">
       <button v-if="!isSaved" @click="saveCity" class="btn btn-primary">
         <i class="fas fa-heart"></i> Save City
       </button>
@@ -34,25 +43,26 @@ const props = defineProps({
   },
 });
 const isSaved = computed(() => {
-  if (!props.weather) return false;
-  return store.isCitySaved(props.weather.id);
+  if (!props.weather || !props.weather.city) return false;
+  return store.isCitySaved(props.weather.city.id);
 });
-
+const hasWeatherData = computed(() => {
+  return props.weather && props.weather.list && props.weather.list.length > 0;
+});
 const saveCity = () => {
-  if (!props.weather) return;
-
+  if (!props.weather || !props.weather.city) return;
+  const city = props.weather.city;
   const cityToSave = {
-    id: props.weather.id,
-    name: props.weather.name,
-    country: props.weather.sys.country,
+    id: city.id,
+    name: city.name,
+    country: city.country,
   };
-
   store.saveCity(cityToSave);
 };
 
 const removeCity = () => {
-  if (!props.weather) return;
-  store.removeCity(props.weather.id);
+  if (!props.weather || !props.weather.city) return;
+  store.removeCity(props.weather.city.id);
 };
 </script>
   

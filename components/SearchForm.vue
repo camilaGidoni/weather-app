@@ -36,7 +36,6 @@ const searchWeather = () => {
     return;
   }
   error.value = "";
-  console.log("form", searchQuery.value);
   emit("search", searchQuery.value);
 };
 

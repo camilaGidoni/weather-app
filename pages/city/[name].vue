@@ -29,7 +29,6 @@ const fetchCityWeather = async () => {
       cityName,
       config.public.weatherApiKey
     );
-    console.log("ddd", weather);
   } catch (err) {
     error.value = err.message;
     weather.value = null;

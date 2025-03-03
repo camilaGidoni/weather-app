@@ -6,9 +6,7 @@
       @search="searchByCity"
       @current-location="searchByCoordinates"
     />
-
     <WeatherViewer :weather="weather" :loading="loading" :error="error" />
-
     <CityList :cities="savedCities" />
   </div>
 </template>
@@ -23,23 +21,13 @@ import {
 
 const config = useRuntimeConfig();
 const store = useCitiesStore();
-const weather = ref(null);
+const weather = ref([]);
 const loading = ref(false);
 const error = ref("");
 
 const savedCities = computed(() => {
   return store.getSavedCities;
 });
-
-/*
-let debounceTimeout;
-const debouncedSearch = (city) => {
-  clearTimeout(debounceTimeout);
-  debounceTimeout = setTimeout(async () => {
-    await searchByCity(city);
-  }, 500);
-};
-*/
 
 const searchByCity = async (city) => {
   try {
@@ -48,7 +36,7 @@ const searchByCity = async (city) => {
     weather.value = await fetchWeatherByCity(city, config.public.weatherApiKey);
   } catch (err) {
     error.value = err.message;
-    weather.value = null;
+    weather.value = [];
   } finally {
     loading.value = false;
   }
